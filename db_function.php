@@ -1,4 +1,5 @@
 <?php require_once("db_connection.php");?>
+<?php require_once("index.html");?>
 <?php
 
 // $id="59/154";
