@@ -1,6 +1,7 @@
 <?php require_once("index.html");?>
 <?php 
     require_once 'db_function.php';
+    header('Access-Control-Allow-Origin: *');
 
     // $id="59/154";
     // $depreciate_b="1499.25";
