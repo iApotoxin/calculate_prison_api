@@ -62,6 +62,24 @@
         
         $result = mysqli_query($connection, $query);
 
+        $data = array();
+		
+		if($result){
+			$query2 = "SELECT * FROM asset_main WHERE date = '{$date}'";
+			$asset = mysqli_query($connection, $query2);
+			if($asset){
+				while ($res = mysqli_fetch_assoc($asset)){
+					array_push($data,$res);
+				}
+				return $data;
+			}else{
+					return false;
+				}
+			}
+			else{
+				return false;
+			}
+
     }
 
 ?>

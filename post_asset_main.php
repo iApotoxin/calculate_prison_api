@@ -1,28 +1,31 @@
-<?php require_once("index.html");?>
 <?php 
     require_once 'db_function.php';
     header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Headers: *');
 
-    // $id="59/154";
-    // $depreciate_b="1499.25";
-    // $depreciate_col="500.75";
-    // $sum="55553";
+    $response = array("error" => FALSE);
+    $postdata = file_get_contents("php://input");
+    $postdata = json_decode($postdata,true);
+
+
+    if (isset($postdata['id']) && isset($postdata['depreciate_b']) && isset($postdata['depreciate_col']) && isset($postdata['sum'])) {
 
     // receiving the post params
-    $id=$_POST['id'];
-    $type=$_POST['type']; //select from type table
-    $location = $_POST['location'];
-    $date = $_POST['date'];
-    $item = $_POST['item'];
-    $amount = $_POST['amount'];
-    $price_amount = $_POST['price_amount'];
-    $price = $_POST['price'];
-    $lifetime = $_POST['lifetime'];
-    $depreciate_pct = $_POST['depreciate_pct'];
-    $depreciate_b = $_POST['depreciate_b'];
-    $depreciate_col = $_POST['depreciate_col'];
-    $sum = $_POST['sum'];
-    $etc = $_POST['etc'];
+    $id=$postdata['id'];
+    $type=$postdata['type']; //select from type table
+    $location = $postdata['location'];
+    $date = $postdata['date'];
+    $item = $postdata['item'];
+    $amount = $postdata['amount'];
+    $price_amount = $postdata['price_amount'];
+    $price = $postdata['price'];
+    $lifetime = $postdata['lifetime'];
+    $depreciate_pct = $postdata['depreciate_pct'];
+    $depreciate_b = $postdata['depreciate_b'];
+    $depreciate_col = $postdata['depreciate_col'];
+    $sum = $postdata['sum'];
+    $etc = $postdata['etc'];
+
 
     $asset_main = insert_asset_main($id, $type, $location, $date, $item, $amount, $price_amount, $price, 
                                     $lifetime, $depreciate_pct, $depreciate_b, $depreciate_col, $sum, $etc);
@@ -41,5 +44,11 @@
             $response["error_msg"] = "Unknown error occurred!";
             echo json_encode($response);
         }
+    }
+    else{
+        $response["error"] = TRUE;
+        $response["error_msg"] = "Required parameters missing!";
+        echo json_encode($response);
+    }
 
 ?>
