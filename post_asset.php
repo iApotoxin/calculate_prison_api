@@ -21,7 +21,7 @@
     // $depreciate_col = $_POST['depreciate_col'];
     // $sum = $_POST['sum'];
     
-    if (isset($postdata->id) && isset($postdata->depreciate_b) && isset($postdata->depreciate_col) && isset($postdata->sum)) {
+    // if (isset($postdata->id) && isset($postdata->depreciate_b) && isset($postdata->depreciate_col) && isset($postdata->sum)) {
 
         $id=$postdata->id;
         $depreciate_b=$postdata->depreciate_b;
@@ -45,10 +45,10 @@
                 $response["error_msg"] = "Unknown error occurred!";
                 echo json_encode($response);
             }
-    }else{
-        $response["error"] = TRUE;
-        $response["error_msg"] = "Required parameters missing!";
-        echo json_encode($response);
-    }
+    // }else{
+    //     $response["error"] = TRUE;
+    //     $response["error_msg"] = "Required parameters missing!";
+    //     echo json_encode($response);
+    // }
 
 ?>
