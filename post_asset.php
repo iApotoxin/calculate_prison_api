@@ -13,8 +13,6 @@
     $response = array("error" => FALSE);
     $postdata = file_get_contents("php://input");
     $postdata = json_decode($postdata,true);
-    echo $postdata['id'];
-    // echo $postdata->id;
 
 
     // receiving the post params
@@ -23,39 +21,39 @@
     // $depreciate_col = $_POST['depreciate_col'];
     // $sum = $_POST['sum'];
     
-    // if (isset($postdata->id) && isset($postdata->depreciate_b) && isset($postdata->depreciate_col) && isset($postdata->sum)) {
-    // // if (isset($_POST['id']) && isset($_POST['depreciate_b']) && isset($_POST['depreciate_col']) && isset($_POST['sum'])) {
+    if (isset($postdata['id']) && isset($postdata['depreciate_b']) && isset($postdata['depreciate_col']) && isset($postdata['sum'])) {
+    // if (isset($_POST['id']) && isset($_POST['depreciate_b']) && isset($_POST['depreciate_col']) && isset($_POST['sum'])) {
 
-    //     $id=$postdata->id;
-    //     $depreciate_b=$postdata->depreciate_b;
-    //     $depreciate_col=$postdata->depreciate_col;
-    //     $sum=$postdata->sum;
-    //     // $id=$_POST['id'];
-    //     // $depreciate_b=$_POST['depreciate_b'];
-    //     // $depreciate_col = $_POST['depreciate_col'];
-    //     // $sum = $_POST['sum'];
+        $id=$postdata['id'];
+        $depreciate_b=$postdata['depreciate_b'];
+        $depreciate_col=$postdata['depreciate_col'];
+        $sum=$postdata['sum'];
+        // $id=$_POST['id'];
+        // $depreciate_b=$_POST['depreciate_b'];
+        // $depreciate_col = $_POST['depreciate_col'];
+        // $sum = $_POST['sum'];
 
 
-    //     $asset = insert_asset($id, $depreciate_b, $depreciate_col, $sum);
-    //         if ($asset) {
+        $asset = insert_asset($id, $depreciate_b, $depreciate_col, $sum);
+            if ($asset) {
                 
-    //             $response = array();
-    //             $response["error"] = FALSE;
-    //             $response["asset"] = $asset;
+                $response = array();
+                $response["error"] = FALSE;
+                $response["asset"] = $asset;
                 
-    //             header('Content-Type: application/json');
-    //             echo json_encode($response);
+                header('Content-Type: application/json');
+                echo json_encode($response);
 
-    //         } else {
-    //             // user failed to store
-    //             $response["error"] = TRUE;
-    //             $response["error_msg"] = "Unknown error occurred!";
-    //             echo json_encode($response);
-    //         }
-    // }else{
-    //     $response["error"] = TRUE;
-    //     $response["error_msg"] = "Required parameters missing!";
-    //     echo json_encode($response);
-    // }
+            } else {
+                // user failed to store
+                $response["error"] = TRUE;
+                $response["error_msg"] = "Unknown error occurred!";
+                echo json_encode($response);
+            }
+    }else{
+        $response["error"] = TRUE;
+        $response["error_msg"] = "Required parameters missing!";
+        echo json_encode($response);
+    }
 
 ?>
