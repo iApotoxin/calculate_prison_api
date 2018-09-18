@@ -5,10 +5,10 @@
     header('Access-Control-Allow-Headers: *');
  
 
-    // $id="59/154";
-    // $depreciate_b="1499.25";
-    // $depreciate_col="500.75";
-    // $sum="55553";
+    $id="59/154";
+    $depreciate_b="1499.25";
+    $depreciate_col="500.75";
+    $sum="55553";
 
     // json response array
     $response = array("error" => FALSE);
