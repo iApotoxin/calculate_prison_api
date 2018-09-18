@@ -23,10 +23,10 @@
     
     // if (isset($postdata->id) && isset($postdata->depreciate_b) && isset($postdata->depreciate_col) && isset($postdata->sum)) {
 
-        $id=$postdata->id;
-        $depreciate_b=$postdata->depreciate_b;
-        $depreciate_col=$postdata->depreciate_col;
-        $sum=$postdata->sum;
+        // $id=$postdata->id;
+        // $depreciate_b=$postdata->depreciate_b;
+        // $depreciate_col=$postdata->depreciate_col;
+        // $sum=$postdata->sum;
 
 
         $asset = insert_asset($id, $depreciate_b, $depreciate_col, $sum);
