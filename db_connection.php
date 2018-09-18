@@ -9,10 +9,12 @@
 	define("DB_DATABASE","db605309c4e07e4c43995aa8140093a394");
 
 	$connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+	mysqli_set_charset($connection, "utf8");  //Show Thai Lang
 
 	if(mysqli_connect_errno()){
 		die("Database connnection failed " . "(" .
 			mysqli_connect_error() . " - " . mysqli_connect_errno() . ")"
 				);
 	}
+	
 ?>
