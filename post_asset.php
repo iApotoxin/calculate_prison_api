@@ -1,6 +1,5 @@
-
 <?php 
-    // require_once 'db_function.php';
+    require_once 'db_function.php';
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Headers: *');
  
@@ -22,7 +21,7 @@
     // $depreciate_col = $_POST['depreciate_col'];
     // $sum = $_POST['sum'];
     
-    if (isset($postdata['id']) && isset($postdata['depreciate_b']) && isset($postdata['depreciate_col']) && isset($postdata['sum'])) {
+    if (isset($postdata->id) && isset($postdata->depreciate_b) && isset($postdata->depreciate_col) && isset($postdata->sum)) {
     // if (isset($_POST['id']) && isset($_POST['depreciate_b']) && isset($_POST['depreciate_col']) && isset($_POST['sum'])) {
 
         $id=$postdata->id;
