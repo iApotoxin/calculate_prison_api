@@ -15,7 +15,7 @@
     $postdata = file_get_contents("php://input");
     $postdata = json_decode($postdata,true);
     echo json_decode($postdata,true);
-    echo "hello"
+    echo "hello";
 
 
     // receiving the post params
