@@ -2,6 +2,8 @@
 <?php 
     require_once 'db_function.php';
     header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Headers: *');
+ 
 
     // $id="59/154";
     // $depreciate_b="1499.25";
