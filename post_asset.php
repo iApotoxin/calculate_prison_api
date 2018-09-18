@@ -14,8 +14,7 @@
     $response = array("error" => FALSE);
     $postdata = file_get_contents("php://input");
     $postdata = json_decode($postdata,true);
-    echo json_decode($postdata,true);
-    echo "hello";
+    echo $postdata['id']; 
 
 
     // receiving the post params
