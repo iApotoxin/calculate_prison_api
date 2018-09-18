@@ -1,6 +1,6 @@
 <?php require_once("index.html");?>
 <?php 
-    require_once 'db_function.php';
+    // require_once 'db_function.php';
     header('Access-Control-Allow-Origin: *');
     header('Access-Control-Allow-Headers: *');
  
