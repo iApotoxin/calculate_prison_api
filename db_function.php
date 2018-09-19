@@ -9,7 +9,7 @@
 
 //insert_asset($id, $depreciate_b, $depreciate_col, $sum);
 
-    function insert_asset($id, $depreciate_b, $depreciate_col,$sum){
+    function insert_asset($id, $depreciate_b, $depreciate_col,$sum,$date){
         global $connection;
 
         $query = "INSERT INTO asset(";
