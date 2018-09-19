@@ -20,7 +20,7 @@
         $data = array();
 		
 		if($result){
-			$query2 = "SELECT * FROM asset WHERE id = '{$date}'";
+			$query2 = "SELECT * FROM asset WHERE date = '{$date}'";
 			$asset = mysqli_query($connection, $query2);
 			if($asset){
 				while ($res = mysqli_fetch_assoc($asset)){
@@ -65,7 +65,7 @@
         $data = array();
 		
 		if($result){
-			$query2 = "SELECT * FROM asset_main WHERE date = '{$id}'";
+			$query2 = "SELECT * FROM asset_main WHERE id = '{$id}'";
 			$asset = mysqli_query($connection, $query2);
 			if($asset){
 				while ($res = mysqli_fetch_assoc($asset)){
