@@ -9,18 +9,18 @@
 
 //insert_asset($id, $depreciate_b, $depreciate_col, $sum);
 
-    function insert_asset($id, $depreciate_b, $depreciate_col, $sum){
+    function insert_asset($id, $depreciate_b, $depreciate_col,$sum){
         global $connection;
 
         $query = "INSERT INTO asset(";
-		$query .= "id, depreciate_b, depreciate_col, sum) ";
-        $query .= "VALUES('{$id}', '{$depreciate_b}','{$depreciate_col}', '{$sum}')";
+		$query .= "id, depreciate_b, depreciate_col, sum, date) ";
+        $query .= "VALUES('{$id}', '{$depreciate_b}','{$depreciate_col}', '{$sum}', '{$date}')";
         
         $result = mysqli_query($connection, $query);
         $data = array();
 		
 		if($result){
-			$query2 = "SELECT * FROM asset WHERE id = '{$id}'";
+			$query2 = "SELECT * FROM asset WHERE id = '{$date}'";
 			$asset = mysqli_query($connection, $query2);
 			if($asset){
 				while ($res = mysqli_fetch_assoc($asset)){
@@ -65,7 +65,7 @@
         $data = array();
 		
 		if($result){
-			$query2 = "SELECT * FROM asset_main WHERE date = '{$date}'";
+			$query2 = "SELECT * FROM asset_main WHERE date = '{$id}'";
 			$asset = mysqli_query($connection, $query2);
 			if($asset){
 				while ($res = mysqli_fetch_assoc($asset)){

@@ -21,20 +21,21 @@
     // $depreciate_col = $_POST['depreciate_col'];
     // $sum = $_POST['sum'];
     
-    if (isset($postdata['id']) && isset($postdata['depreciate_b']) && isset($postdata['depreciate_col']) && isset($postdata['sum'])) {
+    if (isset($postdata['id']) && isset($postdata['depreciate_b']) && isset($postdata['depreciate_col']) && isset($postdata['sum'])&& isset($postdata['date'])) {
     // if (isset($_POST['id']) && isset($_POST['depreciate_b']) && isset($_POST['depreciate_col']) && isset($_POST['sum'])) {
 
         $id=$postdata['id'];
         $depreciate_b=$postdata['depreciate_b'];
         $depreciate_col=$postdata['depreciate_col'];
         $sum=$postdata['sum'];
+        $date=$postdata['date'];
         // $id=$_POST['id'];
         // $depreciate_b=$_POST['depreciate_b'];
         // $depreciate_col = $_POST['depreciate_col'];
         // $sum = $_POST['sum'];
 
 
-        $asset = insert_asset($id, $depreciate_b, $depreciate_col, $sum);
+        $asset = insert_asset($id, $depreciate_b, $depreciate_col, $sum,$date);
             if ($asset) {
                 
                 $response = array();
