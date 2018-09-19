@@ -80,6 +80,22 @@
 				return false;
 			}
 
+	}
+	function get_id($id){
+        global $connection;
+
+        $query = "SELECT sum from asset_main where id = $id";
+        $result = mysqli_query($connection, $query);
+        $data = array();
+		if($result){
+			while ($res = mysqli_fetch_assoc($result)){
+				array_push($data,$res);
+			}
+			return $data;
+		}
+		else{
+			return false;
+		}
     }
 
 ?>
