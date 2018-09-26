@@ -96,6 +96,23 @@
 		else{
 			return false;
 		}
-    }
+	}
+	function  login_ckeck($username,$password){
+		global $connection;
+
+        $query = "SELECT * from user where username = $username AND password = $password ";
+        $result = mysqli_query($connection, $query);
+        $data = array();
+		if($result){
+			while ($res = mysqli_fetch_assoc($result)){
+				array_push($data,$res);
+			}
+			return $data;
+		}
+		else{
+			return false;
+		}
+
+	}
 
 ?>
