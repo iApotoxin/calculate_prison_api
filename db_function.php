@@ -97,6 +97,22 @@
 			return false;
 		}
 	}
+	function get_main_data(){
+		global $connection;
+
+        $query = "SELECT * from asset_main ";
+        $result = mysqli_query($connection, $query);
+        $data = array();
+		if($result){
+			while ($res = mysqli_fetch_assoc($result)){
+				array_push($data,$res);
+			}
+			return $data;
+		}
+		else{
+			return false;
+		}
+	}
 	function  login_ckeck($username,$password){
 		global $connection;
 
